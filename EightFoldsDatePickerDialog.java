@@ -6,20 +6,20 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
-import android.widget.DatePicker;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+
 
 /**
  * Created by Manohar on 14/08/2017.
  */
 
-public class EightFoldsDatePickerDialog extends DatePickerDialog implements DatePicker.OnDateChangedListener {
+public class EightFoldsDatePickerDialog extends DatePickerDialog {
 
-   private DatePickerDialog datePickerDialog;
-   private Context context;
-   private SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
+
+    private DatePickerDialog datePickerDialog;
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     public EightFoldsDatePickerDialog(@NonNull Context context) {
@@ -52,37 +52,36 @@ public class EightFoldsDatePickerDialog extends DatePickerDialog implements Date
 
     public void setMinDate(int year, int month, int day) {
 
-            String minDate = "" + day + "-" + getmonth(month) + "-" + year;
-
-            try {
-                datePickerDialog.getDatePicker().setMinDate(dateFormat.parse(minDate).getTime());
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
+        String minDate = "" + day + "-" + getmonth(month) + "-" + year;
+ 
+        try {
+            datePickerDialog.getDatePicker().setMinDate(dateFormat.parse(minDate).getTime());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
     }
 
     public void setMaxDate(int year, int month, int day) {
 
-            String maxDate = "" + day + "-" + getmonth(month) + "-" + year;
-            try {
-                datePickerDialog.getDatePicker().setMaxDate(dateFormat.parse(maxDate).getTime());
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
+        String maxDate = "" + day + "-" + getmonth(month) + "-" + year;
+        try {
+            datePickerDialog.getDatePicker().setMaxDate(dateFormat.parse(maxDate).getTime());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
     }
 
-    public void setTodayAsMaxDate(){
-
-        long millisec = Calendar.getInstance().getTime().getTime();
-        datePickerDialog.getDatePicker().setMaxDate(millisec);
+    public void setTodayAsMaxDate() {
+        
+        datePickerDialog.getDatePicker().setMaxDate(Calendar.getInstance().getTime().getTime());
 
     }
-    public void setTodayAsMinDate(){
 
-        long millisec = Calendar.getInstance().getTime().getTime();
-        datePickerDialog.getDatePicker().setMinDate(millisec);
+    public void setTodayAsMinDate() {
+        
+        datePickerDialog.getDatePicker().setMinDate(Calendar.getInstance().getTime().getTime());
 
     }
 
@@ -133,3 +132,4 @@ public class EightFoldsDatePickerDialog extends DatePickerDialog implements Date
     }
 
 }
+
