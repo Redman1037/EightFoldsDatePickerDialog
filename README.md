@@ -5,6 +5,7 @@ Using this you can easily set minimum and maximum dates to a datepicker dialog
 
 Copy EightFoldsDatePickerDialog.java to your project
 
+```
 EightFoldsDatePickerDialog datePickerDialog=new EightFoldsDatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
@@ -19,3 +20,4 @@ EightFoldsDatePickerDialog datePickerDialog=new EightFoldsDatePickerDialog(this,
        // datePickerDialog.setMaxDate(2020,4,25); //arguments are   year , month , date (use for setting custom max date)
         datePickerDialog.show();
 
+```
