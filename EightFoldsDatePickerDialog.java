@@ -75,13 +75,13 @@ public class EightFoldsDatePickerDialog extends DatePickerDialog {
 
     public void setTodayAsMaxDate() {
         
-        datePickerDialog.getDatePicker().setMaxDate(Calendar.getInstance().getTime().getTime());
+        datePickerDialog.getDatePicker().setMaxDate(Calendar.getInstance().getTime().getTime()+1000);
 
     }
 
     public void setTodayAsMinDate() {
         
-        datePickerDialog.getDatePicker().setMinDate(Calendar.getInstance().getTime().getTime());
+        datePickerDialog.getDatePicker().setMinDate(Calendar.getInstance().getTime().getTime()-1000);
 
     }
 
